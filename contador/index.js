@@ -1,40 +1,20 @@
-let resultado = 0
+let add = document.getElementById("buttonSoma");
+let remove = document.getElementById("buttonSub");
+let reset = document.getElementById("buttonReset");
+let number = document.getElementById("number");
+let value = 0;
 
-function count(){
-    let button = document.querySelector("#button")
-    let number = document.querySelector("#number")
-    
+add.addEventListener("click", function(){
+    value++;
+    number.innerHTML = value;
+})
 
+remove.addEventListener("click", function(){
+    value--;
+    number.innerHTML = value;
+})
 
-    button.addEventListener('click', ()=>{
-        resultado = resultado + 1
-        number.innerHTML = resultado
-    })
-}
-
-function decrease(){
-    let button = document.querySelector("#button1")
-    let number = document.querySelector("#number")
-    
-
-
-    button.addEventListener('click', ()=>{
-        resultado = resultado - 1
-        number.innerHTML = resultado
-    })
-
-}
-
-function reset(){
-    let button = document.querySelector("#button2")
-    let number = document.querySelector("#number")
-    let value = 0
-
-    button.addEventListener('click', (e)=>{
-        
-        number.innerHTML = value
-        //console.log(e.target.id)
-    })
-
-}
-
+reset.addEventListener("click", function(){
+    value = 0;
+    number.innerHTML = value;
+})
