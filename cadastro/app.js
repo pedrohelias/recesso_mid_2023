@@ -23,8 +23,10 @@ let emailInsert = document.getElementById("email");
 let number = database.length-1;
 let send = document.getElementById("sendCad");
 let list = document.getElementById("listCad");
-
-
+let nomeProj = document.getElementById("nomeCad");
+let idadeProj = document.getElementById("idadeCad");
+let emailProj = document.getElementById("emailCad");
+const listaDiv = document.getElementById("lista");
 //vai adicionar na ultima posicação o cadastro
 function addDatabase(nome, idade, email, database){
    
@@ -57,5 +59,19 @@ send.addEventListener("click", function(){
 });
 
 list.addEventListener("click", function(){
-    console.log(database)
-});
+    //console.log(database)
+    for(let i = 0; i < database.length; i++){
+        // nomeProj.innerHTML = database[i].nome
+        // idadeProj.innerHTML = database[i].idade
+        // emailProj.innerHTML = database[i].email
+        console.log(database[i].nome)
+        console.log(database[i].idade)
+        console.log(database[i].email)
+        console.log("")
+
+        //alterar daqui
+       
+    }
+    }
+);
+
