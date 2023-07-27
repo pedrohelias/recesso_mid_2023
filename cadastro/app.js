@@ -96,6 +96,8 @@ initDatabaseList(database)
 list.addEventListener("click", function(){
     
     if(holdList == 1){
+        if(requisitionsAdd == 1){
+
         //for(let i = 0; i < database.length; i++ ){
             let nome = document.createElement('p');
             let idade = document.createElement('p');
@@ -114,8 +116,30 @@ list.addEventListener("click", function(){
             listaDiv.appendChild(idade);
             listaDiv.appendChild(email);
             listaDiv.appendChild(salto);
-        //}
+
+        }else{
+            for(let s = database.length - requisitionsAdd; s < database.length; s++){
+                let nome = document.createElement('p');
+                let idade = document.createElement('p');
+                let email = document.createElement('p');
+                let salto = document.createElement('hr');
+            
+                let conteudoIdade  = document.createTextNode('Idade: ' + database[s].idade);
+                let conteudoNome  = document.createTextNode('Nome: ' + database[s].nome);
+                let conteudoEmail  = document.createTextNode('Email: ' + database[s].email);
+            
+                nome.appendChild(conteudoNome);
+                idade.appendChild(conteudoIdade);
+                email.appendChild(conteudoEmail);
+                
+                listaDiv.appendChild(nome);
+                listaDiv.appendChild(idade);
+                listaDiv.appendChild(email);
+                listaDiv.appendChild(salto);
+            }
+        }       
         holdList = 0;
+        requisitionsAdd = 0;
     }else{
         alert("adicione um novo usuario para alterar a lista")
     }
