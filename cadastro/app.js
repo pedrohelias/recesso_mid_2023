@@ -26,8 +26,15 @@ let list = document.getElementById("listCad");
 let nomeProj = document.getElementById("nomeCad");
 let idadeProj = document.getElementById("idadeCad");
 let emailProj = document.getElementById("emailCad");
-const listaDiv = document.getElementById("lista");
+const listaDiv = document.getElementById("generateList");
+let holdList = 0;
+let requisitionsAdd = 0;
 //vai adicionar na ultima posicação o cadastro
+
+
+
+
+
 function addDatabase(nome, idade, email, database){
    
     const novoElemento = {
@@ -41,7 +48,31 @@ function addDatabase(nome, idade, email, database){
 
 };
 
+function initDatabaseList(database){
+    for(let i = 0; i < database.length; i++ ){
+        let nome = document.createElement('p');
+        let idade = document.createElement('p');
+        let email = document.createElement('p');
+        let salto = document.createElement('hr');
+    
+        let conteudoIdade  = document.createTextNode('Idade: ' + database[i].idade);
+        let conteudoNome  = document.createTextNode('Nome: ' + database[i].nome);
+        let conteudoEmail  = document.createTextNode('Email: ' + database[i].email);
+    
+        nome.appendChild(conteudoNome);
+        idade.appendChild(conteudoIdade);
+        email.appendChild(conteudoEmail);
+        
+        listaDiv.appendChild(nome);
+        listaDiv.appendChild(idade);
+        listaDiv.appendChild(email);
+        listaDiv.appendChild(salto);
+    }
+
+}
+
 send.addEventListener("click", function(){
+
     if(nomeInsert.value == "" || idadeInsert.value == " " || emailInsert.value == ""){
         alert("Preencha os campos");
     }else{
@@ -55,23 +86,41 @@ send.addEventListener("click", function(){
         //console.log(database)      
     }
 
-    
+    holdList = 1
+    requisitionsAdd++ //conta a quantidade de requisições de adicionar dados foram realizadas 
+
 });
 
-list.addEventListener("click", function(){
-    //console.log(database)
-    for(let i = 0; i < database.length; i++){
-        // nomeProj.innerHTML = database[i].nome
-        // idadeProj.innerHTML = database[i].idade
-        // emailProj.innerHTML = database[i].email
-        console.log(database[i].nome)
-        console.log(database[i].idade)
-        console.log(database[i].email)
-        console.log("")
+initDatabaseList(database)
 
-        //alterar daqui
-       
+list.addEventListener("click", function(){
+    
+    if(holdList == 1){
+        //for(let i = 0; i < database.length; i++ ){
+            let nome = document.createElement('p');
+            let idade = document.createElement('p');
+            let email = document.createElement('p');
+            let salto = document.createElement('hr');
+        
+            let conteudoIdade  = document.createTextNode('Idade: ' + database[database.length-1].idade);
+            let conteudoNome  = document.createTextNode('Nome: ' + database[database.length-1].nome);
+            let conteudoEmail  = document.createTextNode('Email: ' + database[database.length-1].email);
+        
+            nome.appendChild(conteudoNome);
+            idade.appendChild(conteudoIdade);
+            email.appendChild(conteudoEmail);
+            
+            listaDiv.appendChild(nome);
+            listaDiv.appendChild(idade);
+            listaDiv.appendChild(email);
+            listaDiv.appendChild(salto);
+        //}
+        holdList = 0;
+    }else{
+        alert("adicione um novo usuario para alterar a lista")
     }
-    }
-);
+
+});
+
+
 
