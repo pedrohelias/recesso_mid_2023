@@ -27,12 +27,8 @@ let nomeProj = document.getElementById("nomeCad");
 let idadeProj = document.getElementById("idadeCad");
 let emailProj = document.getElementById("emailCad");
 const listaDiv = document.getElementById("generateList");
-let holdList = 0;
-let requisitionsAdd = 0;
-//vai adicionar na ultima posicação o cadastro
-
-
-
+let holdList = 0; //se holdlist for 0, a lista de dados não foi exibida. Se for 1, foi exibida. Para desbloquear, é necessario fazer uma adição de usuario
+let requisitionsAdd = 0; //vai contabilizar a quantidade de adições de um cadastro sem listagem de dados. 
 
 
 function addDatabase(nome, idade, email, database){
