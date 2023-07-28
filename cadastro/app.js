@@ -26,7 +26,7 @@ let emailInsert = document.getElementById("email");
 let number = database.length-1;
 let send = document.getElementById("sendCad");
 let list = document.getElementById("listCad");
-let teste = document.getElementById("teste");
+let testeDelete = document.getElementById("teste");
 let inputInsert = document.getElementById("testeInput");
 let nomeProj = document.getElementById("nomeCad");
 let idadeProj = document.getElementById("idadeCad");
@@ -116,7 +116,8 @@ send.addEventListener("click", function(){
 
 initDatabaseList(database)
 
-teste.addEventListener("click", function(){
+//REVER AQPUI TMB
+testeDelete.addEventListener("click", function(){
     if(inputInsert.value == ""){
         alert("digita o id que deseja excluir")
     }else{
