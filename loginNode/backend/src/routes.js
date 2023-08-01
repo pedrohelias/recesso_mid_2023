@@ -7,7 +7,7 @@ const users = [
     {
         id: 0,
         name: "Pedro",
-        email: "pedrohelias95@hotmail.com",
+        email: "pedro@teste",
         password: 123456
     },
     {
@@ -36,10 +36,10 @@ routes.post("/login", (req,res) => {
     const {email, password} = req.body;
     const user = users.find(user => user.email === email && user.password === password); //retorna true se for valido
     if(user){
-        res.send("email: " + email + " e senha: " + password); //teste para envio de requisição
-        res.status(200)
+        
+        return res.status(200).send("email: " + email + " e senha: " + password + " funcionando"); //teste para envio de requisição
     }else{
-        res.status(401).json({message: "credenciais invalidas"}); //vai retornar credenciais invalidas e o status de erro
+        return res.status(401).json({message: "credenciais invalidas"}); //vai retornar credenciais invalidas e o status de erro
         
     }
      
